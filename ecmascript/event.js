@@ -20,8 +20,8 @@ var heatUp = {
 };
 heatUp.startHOTuP = function(){
     console.log("开始烧开水");
-}
+};
 heatUp.hotSuccess = function(){
     console.log("水烧开了");
-}
+};
 heatUp.hotUp();
