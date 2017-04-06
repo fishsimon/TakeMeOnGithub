@@ -1,0 +1,50 @@
+body{
+    margin:0;
+    padding:0;
+}
+.content{
+    width:100%;
+    height:100vh;
+    background-image: url("http://m.chejinfu.cn/95jy/image/index_back.png");
+    background-size:cover;
+    position: relative;
+}
+.top-content{
+    width:100%;
+    height:50vh;
+    display: flex;
+    align-items: center;
+}
+.header-icon{
+    display: block;
+    position: absolute;
+    top:30px;
+    left:30px;
+}
+.header-icon img{
+    height:94px;
+    width:70px;
+}
+.text-header{
+    width:100%;
+    margin-top:6rem;
+    padding-top:8rem;
+    height:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.text-header-name{
+    color:white;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 3rem;
+    display: block;
+}
+.text-header-content{
+    font-size: 2rem;
+    font-weight: bold;
+    color:#FFFDC6;
+    line-height: 3rem;
+    align-content: center;
+}
