@@ -4,6 +4,7 @@
   "devDependencies": {
     "express": "^4.15.2",
     "jquery": "^3.2.1",
+    "mysql": "^2.13.0",
     "sequelize": "^3.30.4"
   }
 }

@@ -54,32 +54,36 @@ var router = express.Router();
 //     };
 //     res.json(data);
 // });
-router.get("/staff",function (req,res){
-    var data = {
-        message:"successful!",
-        contents:[
-            {
-              name:"lucy",
-              age:22,
-              sex:"female",
-                adress:{
-                  countray:"USA",
-                    city:"Washington"
-                }
-            },
-            {
-                name:"charlie",
-                age:24,
-                sex:"male",
-                adress:{
-                    conutray:"England",
-                    city:"London"
-                }
-            }
-        ]
-    };
-    res.json(data);
-});
+// router.get("/staff",function (req,res){
+//     var data = {
+//         message:"successful!",
+//         contents:[
+//             {
+//               name:"lucy",
+//               age:22,
+//               sex:"female",
+//                 adress:{
+//                   countray:"USA",
+//                     city:"Washington"
+//                 }
+//             },
+//             {
+//                 name:"charlie",
+//                 age:24,
+//                 sex:"male",
+//                 adress:{
+//                     conutray:"England",
+//                     city:"London"
+//                 }
+//             }
+//         ]
+//     };
+//     res.json(data);
+// });
+
+var userDb = require('./server/proceed/user');
+userDb.init(router);
+
 app.use("/",router);
 app.use("/",express.static(__dirname));
 app.listen(8223);
