@@ -64,6 +64,21 @@ var User = sequelize.define(
     freezeTableName:true
     }
 );
+var document = sequelize.define(
+  "document",
+    {
+      id:{"type":Sequelize.STRING,primaryKey:true},
+      title:{"type":Sequelize.STRING},
+      type:{"type":Sequelize.STRING}  ,
+      content:{"type":Sequelize.STRING},
+      author:{"type":Sequelize.STRING},
+      avator:{"type":Sequelize.STRING},
+      remark:{type:Sequelize.STRING}
+    },
+    {
+        freezeTableName:true
+    }
+);
 exports.createUser = function () {
     return User.sync().then(function () {                    //sync():同步
         return User.create({
@@ -73,6 +88,20 @@ exports.createUser = function () {
         });
     });
 };
+exports.createDocument = function () {
+    return document.sync().then(function () {
+        return document.create({
+            id:"id" + Math.random(),
+            title:'美丽的新中国',
+            type:'0',
+            content:'我爱中华',
+            author:'B哥'
+        });
+    });
+};
 exports.getUser = function () {
     return User.findAll();
+};
+exports.getDocument = function () {
+    return document.findAll();
 };

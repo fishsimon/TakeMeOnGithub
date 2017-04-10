@@ -84,6 +84,9 @@ var router = express.Router();
 var userDb = require('./server/proceed/user');
 userDb.init(router);
 
+var documentDb = require('./server/proceed/document');
+documentDb.init(router);
+
 app.use("/",router);
 app.use("/",express.static(__dirname));
-app.listen(8223);
+app.listen(8233);
