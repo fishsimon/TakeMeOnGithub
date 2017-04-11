@@ -86,7 +86,9 @@ userDb.init(router);
 
 var documentDb = require('./server/proceed/document');
 documentDb.init(router);
+var overwatch = require('./server/proceed/exercise');
+overwatch.init(router);
 
 app.use("/",router);
 app.use("/",express.static(__dirname));
-app.listen(8233);
+app.listen(8223);
