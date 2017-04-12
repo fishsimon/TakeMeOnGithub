@@ -49,7 +49,7 @@ function getDate(currentPageIndex) {
                 html += "</td>";
 
                 html += "<td>";
-                html += employee.mobileNumber?employee.mobileNumber:"";
+                html += employee.phoneNumber?employee.phoneNumber:"";
                 html += "</td>";
 
                 html += "<td>";
@@ -100,10 +100,30 @@ getDate(gPageIndex);
 function deleteData(e) {
 
 }
-var mailInput = $("#updateEmail");
+// var mailInput = $("#updateEmail");
+var uNameEle = $("#userName");
+var uEmailEle= $("#updateEmail");
+var uMobileEle = $("#mobileNumber");
+var uRealNameEle = $("#realName");
+var uAgeEle = $("#age");
+var uQqEle = $("#qq");
 function updateData(element) {
     var tr = $(element).parents("tr");
+    var tds = tr.children();
+    var userName = tds.eq(0).text();
+    uNameEle.val(userName);
+    var email = tds.eq(1).text();
+    uEmailEle.val(email);
+    var mobileNumber = tds.eq(2).text();
+    uMobileEle.val(mobileNumber);
+    var realName = tds.eq(3).text();
+    uRealNameEle.val(realName);
+    var age = tds.eq(4).text();
+    uAgeEle.val(age);
+    var qq = tds.eq(5).text();
+    uQqEle.val(qq);
     var id = tr.attr("data-uid");
-    mailInput.val(id);
+    $("#idInput").val(id);
+    // mailInput.val(id);
     $('.modal').modal();
 }

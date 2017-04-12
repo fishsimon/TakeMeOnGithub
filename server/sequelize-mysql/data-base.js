@@ -84,7 +84,26 @@ exports.createUser = function () {
         return User.create({
             id:"id" + Math.random(),
             userName:'Hancock',
-            password:'a121212'
+            password:'a121212',
+            age:18
+        });
+    });
+};
+exports.updateUser = function (user) {
+    if(!user.id) return;
+    return User.sync().then(function () {
+       return User.update({
+            userName:user.userName,
+               email:user.email,
+               phoneNumber:user.mobile,
+               realName:user.realName,
+               age:user.age,
+               qq:user.qq
+            },
+            {
+                where:{
+                    id:user.id
+                }
         });
     });
 };
