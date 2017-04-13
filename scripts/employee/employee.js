@@ -127,3 +127,15 @@ function updateData(element) {
     // mailInput.val(id);
     $('.modal').modal();
 }
+//监听创建用户按钮的单击事件
+$("#createUserBtn").click(function () {
+    $('.modal').modal();
+});
+//另外两种方法监听创建用户按钮的单击事件
+// $("#createUserBtn").on('click',function () {
+//
+// });
+// $("#createUserBtn").bind('click',function () {
+//
+// });
+//

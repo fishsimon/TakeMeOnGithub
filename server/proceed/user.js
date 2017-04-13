@@ -1,9 +1,10 @@
 /**
  * Created by forli on 2017/4/6.
  */
-var dbSequelize = require('../sequelize-mysql/data-base');
+var dbSequelize = require('../sequelize-mysql/data-base');//引入data-base模块，使用sequelize操作数据库
+//exports暴露init方法给引用本模块的模块，init方法的作用：使用传递进来的router对象，注册用户相关的操作的路由
 exports.init = function(router){
-    router.get("/updateUser",function(req,res){
+    router.get("/updateUser",function(req,res){ //以get的方式注册跟新用户的路由
         // var uName = req.query.userName;
         // var uEmail = req.query.email;
         // var uMobile = req.query.mobile;
@@ -11,6 +12,7 @@ exports.init = function(router){
         // var uRname = req.query.realName;
         // var uAge = req.query.age;
         // var id = req.query.id;
+        //创建临时对象userData，接收客户端传递的参数  req.query，接收地址最后的？传递的参数
         var userData = {
             userName:req.query.userName,
             email:req.query.email,
@@ -20,16 +22,20 @@ exports.init = function(router){
             age:req.query.age,
             id:req.query.id
         };
+        //判断客户端是否传递userid，如果传递了，表示是数据库已存在该用户的信息，要去更新这条数据。如果没传，表示要在数据库新建一条数据
         if(userData.id){
-            dbSequelize.updateUser(userData).then(function (r) {
+            // 修改已存在的用户数据
+            dbSequelize.updateUser(userData).then(function (r) { //更新数据操作是由nodejs发起的请求，由数据库执行。当数据库执行完成后，会通过then方法传递的函数来告诉nodejs数据库更新完成。返回的数据由r参数传递。
                 res.json({
                     flag:0,
                     message:"",
                     contents:[]
                 });
-            })
-            }else{
-            dbSequelize.createUser().then(function(r){
+            });
+            }
+        //新增用户数据
+            else{
+            dbSequelize.createUser(userData).then(function(r){
                 var result = {
                     id:r.dataValues.id,
                     userName:r.dataValues.userName,
@@ -59,7 +65,7 @@ exports.init = function(router){
     //     });
     // });
 
-    router.get("/findUser",function(req,res){
+    router.get("/findUser",function(req,res){  //
         var pIndex = req.query.pageIndex;
         var pSize = req.query.pageSize;
         pIndex = Number(pIndex);
