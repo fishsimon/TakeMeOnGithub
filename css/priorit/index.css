@@ -1,0 +1,15 @@
+.a{
+    color:blue;
+}
+.b{
+    color:red;
+}
+.c{
+    color:yellow;
+}
+[data-face]{
+    background: red;
+}
+#first{
+    background: deeppink !important;
+}
