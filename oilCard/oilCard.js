@@ -3,4 +3,4 @@
  */
 document.querySelector(".btn-make-card").onclick = function () {
     window.open("#")
-}
+};
